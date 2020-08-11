@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
-import SingleCat from '../cats/cat-single';
+import SingleCat from '../cats/single-cat';
 
-const CatListings = (props) => {
+const Main = (props) => {
   const [cats, setCats] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
@@ -45,22 +45,15 @@ const CatListings = (props) => {
      {loading && <div>loading...</div>}
       <ul className="cats">
           {cats && cats.length > 0 && cats.map((cat, index) => {
-            return <SingleCat
-                key={cat.id}
-                cat={cat}
-                addToFamily={props.addToFamily}
-                removeFromFamily={props.removeFromFamily}
-                getFamily={props.getFamily}
-              />
+            return <SingleCat cat={cat}/>
           })}
       </ul>
-
       <nav className='pagination'>
-        {offset > 0 && <button onClick={() => {paginateCats('prev')}}>Previous Page</button>}
-        {page < (Math.floor(props.catCount / CATS_PER_PAGE) - 1) && <button className='next' onClick={() => {paginateCats('next')}}>Next Page</button>}
+        {offset > 0 && <button onClick={() => {paginateCats('prev')}}>Give me less cats!</button>}
+        {page < (Math.floor(props.catCount / CATS_PER_PAGE) - 1) && <button className='next' onClick={() => {paginateCats('next')}}>Give me more cats!</button>}
       </nav>
     </section>
   )
 }
 
-export default CatListings;
+export default Main;
