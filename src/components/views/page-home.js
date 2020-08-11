@@ -1,69 +1,73 @@
-import React, { Component } from "react";
-import { observer, inject } from "mobx-react";
-import { observable, toJS } from "mobx";
-import Header from "../common/header";
-import CatListings from "../cats/cat-listings";
+import React, { Component } from 'react';
+import { observer, inject } from 'mobx-react';
+import { observable, toJS } from 'mobx';
+import Header from '../common/header';
+import CatListings from '../cats/cat-listings';
 
-@inject("store")
+@inject('store')
 @observer
 
 class View extends Component {
+
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       cats: [],
       myFamily: [],
-      showFamily: false,
-    };
+      showFamily: false
+    }
   }
 
-  componentDidMount() {
+  componentDidMount(){
     this.getFamily();
   }
 
   //retrieves paginated cats, either from local memory OR from api.
+
   fetchCats = async (limit, offset, pageCount) => {
     let cats = this.state.cats;
 
     //load cats from local memory
     if (offset < cats.length) {
-      console.log("loading from cache");
+      console.log('loading from cache');
       let cachedCats = cats.slice(offset, offset + limit);
 
       return cachedCats;
     }
     //fetch cats from local api
     else {
-      console.log("fetching from api");
+      console.log('fetching from api');
       let newCats = await this.props.store.fetchCats(limit, pageCount);
 
       newCats.map((cat, index) => {
         cats.push(cat);
       });
 
-      this.setState({ cats: cats });
+      this.setState({cats: cats});
 
       return newCats;
     }
-  };
+  }
 
   addToFamily = (cat) => {
     this.props.store.addToFamily(cat);
-  };
+  }
 
   removeFromFamily = (cat) => {
     this.props.store.removeFromFamily(cat);
-  };
+  }
 
   getFamily = async () => {
     let family = await this.props.store.getFamily();
-    this.setState({ myFamily: toJS(family)});
-  };
+    this.setState({myFamily: toJS(family)}, ()=> {
+      console.log('test', this.state.myFamily);
+    });
+  }
 
   showFamily = () => {
-    this.setState({ showFamily: !this.state.showFamily });
-  };
+    this.setState({showFamily: !this.state.showFamily});
+  }
 
   render() {
     return (
@@ -85,7 +89,7 @@ class View extends Component {
           removeFromFamily={this.removeFromFamily}
         />
       </React.Fragment>
-    );
+    )
   }
 }
 
