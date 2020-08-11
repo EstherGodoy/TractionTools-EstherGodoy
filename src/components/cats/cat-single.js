@@ -4,7 +4,7 @@ const SingleCat = (props) => {
 
   //check if cat exists in familyCount
   const [inFamily, setInFamily] = useState(false);
-  const [cat, setCat] = useState(props.cat);
+  const [imageUrl, setImageUrl] = useState(props.cat ? props.cat.url : false);
 
   useEffect(() => {
    getFamily();
@@ -31,7 +31,7 @@ const SingleCat = (props) => {
 
   return (
     <li className={inFamily ? 'family' : ''}>
-      <figure style={{backgroundImage: `url(${props.cat.url})`}}>
+      <figure style={{backgroundImage: `url(${imageUrl})`}}>
         { props.type != 'family' ?
           <button className={inFamily ? 'remove' : 'add'} onClick={!inFamily ? addToFamily : removeFromFamily}>{!inFamily ? 'Add To Family' : 'Remove From Family'}</button>
           :

@@ -56,8 +56,8 @@ const CatListings = (props) => {
       </ul>
 
       <nav className='pagination'>
-        {offset > 0 && <button onClick={() => {paginateCats('prev')}}>Previous Page</button>}
-        {page < (Math.floor(props.catCount / CATS_PER_PAGE) - 1) && <button className='next' onClick={() => {paginateCats('next')}}>Next Page</button>}
+        <button className="prev" disabled={offset <= 0} onClick={() => {paginateCats('prev')}}>Previous Page</button>
+        <button className='next' disabled={page > (Math.floor(props.catCount / CATS_PER_PAGE) - 1)}  onClick={() => {paginateCats('next')}}>Next Page</button>
       </nav>
     </section>
   )

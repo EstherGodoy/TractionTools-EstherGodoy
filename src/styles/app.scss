@@ -167,6 +167,10 @@ header {
     background: rgba(176, 171, 202, 1);
     margin: 0 5px;
 
+    &:disabled {
+      display: none;
+    }
+    
     &.next {
       background: rgba(163, 214, 212, 1);
     }

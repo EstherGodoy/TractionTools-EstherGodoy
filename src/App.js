@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Provider } from 'mobx-react';
-import { withRouter } from 'react-router';
-import { Route } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import Store from './store';
 import { decorate, observable, action } from 'mobx';
 import Home from './components/views/page-home';
@@ -22,12 +21,14 @@ class App extends Component {
   render() {
     return (
       <Provider store={catsStore}>
-        <div className='container'>
-          <Route exact path='/' render={() => (<Home history={this.props.history}/>)}/>
-        </div>
+        <BrowserRouter>
+          <div className='container'>
+            <Route exact path='/' render={() => (<Home history={this.props.history}/>)}/>
+          </div>
+        </BrowserRouter>  
       </Provider>
     );
   }
 }
 
-export default withRouter(App);
+export default (App);
