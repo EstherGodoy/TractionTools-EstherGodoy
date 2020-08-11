@@ -6,27 +6,30 @@ const SingleCat = (props) => {
   const [inFamily, setInFamily] = useState(false);
   const [imageUrl, setImageUrl] = useState(props.cat ? props.cat.url : false);
 
-  useEffect(() => {
-   getFamily();
- }, [setInFamily]);
+
+ useEffect(() => {
+  setCatsFamilyStatus()
+ }, [props.myFamily]);
 
 
   const addToFamily = async (type) => {
     await props.addToFamily(props.cat);
-    getFamily();
+    getUpdatedFamily();
   }
 
-  const removeFromFamily = () => {
-    let updatedFamily = props.removeFromFamily(props.cat);
-    getFamily();
+  const removeFromFamily = async () => {
+    await props.removeFromFamily(props.cat);
+    getUpdatedFamily();
   }
 
-  const getFamily = async () => {
-    //retrieve users family
-    let updatedFamily = await props.getFamily();
-
+  const getUpdatedFamily = async () => {
     //then check if cat is in family
-    setInFamily(updatedFamily.some(e => e.id === props.cat.id));
+    await props.getFamily();
+    setCatsFamilyStatus();
+  }
+
+  const setCatsFamilyStatus = () => {
+    setInFamily(props.myFamily && props.myFamily.length > 0 && props.myFamily.some(e => e.id === props.cat.id));
   }
 
   return (

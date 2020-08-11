@@ -25,7 +25,7 @@ class App extends Component {
           <div className='container'>
             <Route exact path='/' render={() => (<Home history={this.props.history}/>)}/>
           </div>
-        </BrowserRouter>  
+        </BrowserRouter>
       </Provider>
     );
   }

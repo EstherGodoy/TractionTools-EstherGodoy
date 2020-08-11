@@ -50,6 +50,7 @@ const CatListings = (props) => {
                 cat={cat}
                 addToFamily={props.addToFamily}
                 removeFromFamily={props.removeFromFamily}
+                myFamily={props.myFamily}
                 getFamily={props.getFamily}
               />
           })}

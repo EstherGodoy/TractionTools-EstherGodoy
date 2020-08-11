@@ -60,8 +60,9 @@ class View extends Component {
 
   getFamily = async () => {
     let family = await this.props.store.getFamily();
-    this.setState({myFamily: family});
-    return toJS(family);
+    this.setState({myFamily: toJS(family)}, ()=> {
+      console.log('test', this.state.myFamily);
+    });
   }
 
   showFamily = () => {
@@ -83,6 +84,7 @@ class View extends Component {
           addToFamily={this.addToFamily}
           catCount={this.props.store.catCount}
           fetchCats={this.fetchCats}
+          myFamily={this.state.myFamily}
           getFamily={this.getFamily}
           removeFromFamily={this.removeFromFamily}
         />

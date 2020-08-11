@@ -39,7 +39,6 @@ class Store {
   }
 
   getFamily = async () => {
-    console.log(this.myFamily, typeof this.myFamily);
     return this.myFamily;
   }
 }
