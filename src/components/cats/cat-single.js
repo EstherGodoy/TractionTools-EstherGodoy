@@ -12,19 +12,18 @@ const SingleCat = (props) => {
  }, [props.myFamily]);
 
 
-  const addToFamily = async (type) => {
-    await props.addToFamily(props.cat);
+  const addToFamily = (type) => {
+    props.addToFamily(props.cat);
     getUpdatedFamily();
   }
 
-  const removeFromFamily = async () => {
-    await props.removeFromFamily(props.cat);
+  const removeFromFamily = () => {
+    props.removeFromFamily(props.cat);
     getUpdatedFamily();
   }
 
-  const getUpdatedFamily = async () => {
-    //then check if cat is in family
-    await props.getFamily();
+  const getUpdatedFamily = () => {
+    props.getFamily();
     setCatsFamilyStatus();
   }
 
