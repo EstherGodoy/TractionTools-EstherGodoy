@@ -1,12 +1,20 @@
 import React from 'react';
+import CatFamily from '../cats/cat-family';
 
 const Header = (props) => {
-  console.log('header', props);
 
   return (
     <header>
       <h1>If It Fits I Sits</h1>
-      {/* props.auth ? <button onClick={props.logout}>Logout</button> : <button onClick={props.login}>Login</button> */}
+
+      <button onClick={props.showFamily}>My Cat Fam {props.familyCount > 0 && props.familyCount}</button>
+
+      {props.familyVisible && <CatFamily
+        cats={props.myFamily}
+        getFamily={props.getFamily}
+        removeFromFamily={props.removeFromFamily}
+        />
+      }
     </header>
   )
 }
