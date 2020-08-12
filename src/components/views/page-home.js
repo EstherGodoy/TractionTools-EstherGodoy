@@ -19,10 +19,6 @@ class View extends Component {
     }
   }
 
-  componentDidMount(){
-    this.getFamily();
-  }
-
   //retrieves paginated cats, either from local memory OR from api.
 
   fetchCats = async (limit, offset, pageCount) => {
@@ -60,9 +56,7 @@ class View extends Component {
 
   getFamily = async () => {
     let family = await this.props.store.getFamily();
-    this.setState({myFamily: toJS(family)}, ()=> {
-      console.log('test', this.state.myFamily);
-    });
+    this.setState({myFamily: toJS(family)});
   }
 
   showFamily = () => {

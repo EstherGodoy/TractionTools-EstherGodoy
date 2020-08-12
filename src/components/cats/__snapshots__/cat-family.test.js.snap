@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`cat family snapshot test 1`] = `
+<section>
+  <ul
+    className="cats"
+  />
+  <nav
+    className="pagination"
+  >
+    <button
+      className="prev"
+      disabled={true}
+      onClick={[Function]}
+    >
+      Previous Page
+    </button>
+    <button
+      className="next"
+      disabled={false}
+      onClick={[Function]}
+    >
+      Next Page
+    </button>
+  </nav>
+</section>
+`;

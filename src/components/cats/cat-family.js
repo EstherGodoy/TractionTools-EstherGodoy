@@ -19,7 +19,7 @@ const CatFamily = (props) => {
             })}
         </ul>
         :
-        <div>No cats in your family yet</div>
+        <div id="no-cats">No cats in your family yet</div>
       }
     </div>
   )

@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`single cat snapshot test 1`] = `
+<li
+  className=""
+>
+  <figure
+    style={
+      Object {
+        "backgroundImage": "url(false)",
+      }
+    }
+  >
+    <button
+      className="add"
+      onClick={[Function]}
+    >
+      Add To Family
+    </button>
+  </figure>
+</li>
+`;

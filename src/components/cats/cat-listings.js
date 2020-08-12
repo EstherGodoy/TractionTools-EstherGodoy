@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import SingleCat from '../cats/cat-single';
+import renderer from 'react-test-renderer';
 
 const CatListings = (props) => {
   const [cats, setCats] = useState([]);

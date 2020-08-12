@@ -6,11 +6,9 @@ const SingleCat = (props) => {
   const [inFamily, setInFamily] = useState(false);
   const [imageUrl, setImageUrl] = useState(props.cat ? props.cat.url : false);
 
-
- useEffect(() => {
-  setCatsFamilyStatus()
- }, [props.myFamily]);
-
+  useEffect(() => {
+    setCatsFamilyStatus()
+  }, [props.myFamily]);
 
   const addToFamily = (type) => {
     props.addToFamily(props.cat);

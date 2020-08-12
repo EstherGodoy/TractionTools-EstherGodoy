@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`app snapshot test 1`] = `
+<div
+  className="container"
+>
+  <header>
+    <h1>
+      If It Fits I Sits
+    </h1>
+    <button
+      onClick={[Function]}
+    >
+      My Cat Fam 
+    </button>
+  </header>
+  <section>
+    <ul
+      className="cats"
+    />
+    <nav
+      className="pagination"
+    >
+      <button
+        className="prev"
+        disabled={true}
+        onClick={[Function]}
+      >
+        Previous Page
+      </button>
+      <button
+        className="next"
+        disabled={true}
+        onClick={[Function]}
+      >
+        Next Page
+      </button>
+    </nav>
+  </section>
+</div>
+`;
