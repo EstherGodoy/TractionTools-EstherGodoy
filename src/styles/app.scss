@@ -166,6 +166,7 @@ header {
 	button {
 		background: rgba(176, 171, 202, 1);
 		margin: 0 5px;
+		cursor: pointer;
 
 		&:disabled {
 			display: none;
